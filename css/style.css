@@ -1,0 +1,273 @@
+/* Pearl's Luxe Lane Boutique - External CSS */
+
+/*CSS Reset*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic page style */
+body {
+    font-family: Arial, sans-serif;
+    color: #5a2942;
+    background-color: #fff0f5;
+    padding: 5px;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Headings */
+h1,
+h2,
+h3 {
+    font-family: Georgia, serif;
+    color: #d63384;
+}
+
+/* Header */
+header {
+    background-color: #d63384;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    border-bottom: 4px solid #f8b6d2;
+}
+
+header img {
+    width: 120px;
+    height: 120px;
+    border-radius: 0;
+}
+
+header h1 {
+    margin-bottom: 5px;
+    font-size: 2.5rem;
+}
+
+/* Navigation */
+nav {
+    background-color: #f8b6d2;
+    padding: 15px;
+    text-align: center;
+    margin-top: 10px;
+    border-radius: 8px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav a {
+    color: #5a2942;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    background-color: #d63384;
+    color: white;
+}
+
+nav a:focus {
+    outline: 3px solid #c2185b;
+    outline-offset: 3px;
+}
+
+/* Main content */
+main {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* Sections */
+section {
+    margin-bottom: 25px;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #f8b6d2;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.10);
+}
+
+/* Images */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Links */
+a {
+    color: #c2185b;
+}
+
+/* Forms */
+form {
+    background-color: white;
+    padding: 25px;
+    border: 2px solid #f8b6d2;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.10);
+}
+
+input,
+textarea,
+select {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #d63384;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+textarea {
+    resize: vertical;
+}
+
+label {
+    font-weight: bold;
+}
+
+/* Button */
+button {
+    background-color: #d63384;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #c2185b;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+/* Footer */
+footer {
+    background-color: #c2185b;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .products{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    main {
+        padding: 0 10px;
+    }
+}
+/* Products */
+.products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.products article {
+    background-color: #fff0f5;
+    padding: 15px;
+    border: 1px solid #f8b6d2;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.products img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .products {
+        grid-template-columns: 1fr;
+    }
+
+    header h1 {
+        font-size: 1.7rem;
+    }
+
+    header {
+        padding: 15px;
+    }
+
+    header img {
+        width: 90px;
+    }
+
+    form {
+        padding: 15px;
+    }
+
+    footer {
+        font-size: 0.9rem;
+        padding: 15px;
+    }
+}
+/* Services layout */
+.services {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.service {
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #f8b6d2;
+}
+
+/* Responsive services */
+@media (max-width: 768px) {
+    .services {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .services {
+        grid-template-columns: 1fr;
+    }
+}
+.services-grid-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.services-card {
+    padding: 20px;
+}

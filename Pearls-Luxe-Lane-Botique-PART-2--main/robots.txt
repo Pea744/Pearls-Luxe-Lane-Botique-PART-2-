@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://YOUR-WEBSITE-URL/sitemap.xml
+Sitemap: https://pea744.github.io/Pearls-Luxe-Lane-Botique-PART-2-/sitemap.xml
+

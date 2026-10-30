@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Pearl's Luxe Lane Boutique for questions about our clothing, products and services.">
+    <title>Contact - Pearl's Luxe Lane Boutique</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Pearl's Luxe Lane Boutique</h1>
+
+        <img src="images/logo.jpg"
+             alt="Pearl's Luxe Lane Boutique store logo"
+             class="shop-logo">
+
+        <p>We offer dresses, skirts, streetwear, jeans, tops, accessories and other clothing.</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="enquiry.html">Enquiry</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <section>
+            <h2>Contact Us</h2>
+
+            <p>We would love to hear from you.</p>
+
+            <address>
+                Email:
+                <a href="mailto:info@pearlsluxelane.co.za">info@pearlsluxelane.co.za</a>
+
+                <br><br>
+
+                Phone:
+                <a href="tel:+27123456789">+27 12 345 6789</a>
+            </address>
+        </section>
+
+        <section>
+            <h2>Visit Us</h2>
+
+            <p>
+                Pearl's Luxe Lane Boutique is based in Limpopo, South Africa.
+                The map below shows Polokwane as a general location.
+            </p>
+
+    
+            <iframe
+                title="Map showing Polokwane in Limpopo, South Africa"
+                src="https://www.google.com/maps?q=Polokwane,Limpopo,South Africa&output=embed"
+                width="600"
+                height="450"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin">
+            </iframe>
+        </section>
+
+        <section>
+            <h2>Get In Touch</h2>
+
+            <p>
+                You can contact us about our products, services or enquiries
+                using the form below.
+            </p>
+
+            <form id="contact-form">
+
+                <label for="contact-name">Full Name:</label>
+                <input type="text" 
+                id="contact-name"
+                 name="contact-name" required>
+
+                <label for="contact-email">Email Address:</label>
+                <input type="email" 
+                id="contact-email"
+                 name="contact-email" required>
+
+                <label for="contact-message">Your Message:</label>
+                <textarea id="contact-message"
+                 name="contact-message"
+                 rows="5" required minlength="10"></textarea>
+
+                <button type="submit">Send Message</button>
+
+            </form>
+
+            <p id="contact-response" 
+            aria-live="polite"></p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Pearl's Luxe Lane Boutique</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>
+
+

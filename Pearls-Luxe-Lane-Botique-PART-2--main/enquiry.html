@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Product Enquiries | Pearl's Luxe Lane Boutique</title>
+
+    <meta name="description" content="Enquire about trendy outfits, dresses, skirts, streetwear and accessories at Pearl's Luxe Lane Boutique.">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>Pearl's Luxe Lane Boutique</h1>
+
+    <img src="images/logo.jpg"
+         alt="Pearl's Luxe Lane Boutique store logo"
+         class="shop-logo">
+
+    <p>Discover stylish outfits that express your personality.</p>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="enquiry.html">Enquiry</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+<main>
+
+    <section id="enquiry-intro">
+        <h2>Your Style, Your Statement</h2>
+
+        <p>
+            Fashion is more than just clothes — it's confidence,
+            creativity and expressing who you are. Discover trendy
+            outfits, stunning dresses and must-have accessories
+            to elevate your look.
+        </p>
+    </section>
+
+    <section id="enquiry-section">
+        <h2>Let's Find Your Perfect Look!</h2>
+
+        <p>
+            Interested in a particular outfit? Ask us about our
+            latest styles, sizes, prices and availability using
+            the enquiry form below.
+        </p>
+
+        <form id="enquiry-form" action="#" method="post">
+
+            <p>
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name"
+                       placeholder="Enter your full name" required>
+            </p>
+
+            <p>
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email"
+                       placeholder="Enter your email address" required>
+            </p>
+
+            <p>
+                <label for="phone">Phone Number (optional):</label>
+                <input type="tel" id="phone" name="phone"
+                       placeholder="Enter your phone number">
+            </p>
+
+            <p>
+                <label for="enquiry-type">What would you like to know?</label>
+                <select id="enquiry-type" name="enquiry-type" required>
+                    <option value="">Select an enquiry type</option>
+                    <option value="availability">Product availability</option>
+                    <option value="price">Prices</option>
+                    <option value="size">Sizes and fitting</option>
+                    <option value="style">Style recommendations</option>
+                    <option value="other">Other enquiry</option>
+                </select>
+            </p>
+
+            <p>
+                <label for="product">Choose a Product:</label>
+                <select id="product" name="product" required>
+                    <option value="">Select a product category</option>
+                    <option value="Dresses">Dresses</option>
+                    <option value="Skirts">Skirts</option>
+                    <option value="Streetwear">Streetwear</option>
+                    <option value="Jeans">Jeans</option>
+                    <option value="Tops">Tops</option>
+                    <option value="Accessories">Accessories</option>
+                    <option value="Other">Other</option>
+                </select>
+            </p>
+
+            <p>
+                <label for="message">Your Message:</label>
+                <textarea id="message" name="message"
+                          rows="5"
+                          placeholder="Tell us what you are looking for..."
+                          required></textarea>
+            </p>
+
+            <button type="submit">Submit Enquiry</button>
+
+            <p id="enquiry-response" aria-live="polite"></p>
+
+        </form>
+    </section>
+
+</main>
+
+<footer>
+    <p>&copy; 2026 Pearl's Luxe Lane Boutique. All rights reserved.</p>
+</footer>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
+

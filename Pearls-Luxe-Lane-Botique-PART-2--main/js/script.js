@@ -13,8 +13,8 @@ function searchProducts() {
     let numberOfMatches = 0;
 
     productCards.forEach(function (card) {
-        const cardText = card.textContent.toLowerCase();
-        const cardMatches = cardText.includes(searchText);
+        const productName = card.querySelector("h3").textContent.toLowerCase();
+        const cardMatches = productName.includes(searchText);
 
         card.hidden = !cardMatches;
 
@@ -96,7 +96,7 @@ if (productImages.length > 0) {
     });
 }
 
-// ENQUIRY FORM VALIDATION //
+// ENQUIRY FORM VALIDATION
 
 const enquiryForm = document.querySelector("#enquiry-form");
 
@@ -141,9 +141,7 @@ if (enquiryForm) {
     });
 }
 
-
-
-/* CLOTHING DETAILS BUTTONS Added  */
+// CLOTHING DETAILS BUTTONS
 
 const detailsButtons = document.querySelectorAll(".details-button");
 
@@ -165,19 +163,14 @@ detailsButtons.forEach(function (button) {
     });
 });
 
+// HOME PAGE FEATURED STYLE
 
-/* HOME PAGE FEATURED STYLE */
-
-// Find the home page elements.
 const specialMessage = document.querySelector("#special-message");
 const specialButton = document.querySelector("#special-button");
 const specialImage = document.querySelector("#special-image");
 
-// Check that these elements are available.
 if (specialMessage && specialButton && specialImage) {
-
     specialButton.addEventListener("click", function () {
-
         specialMessage.textContent =
             "Discover stylish outfits at Pearl's Luxe Lane Boutique. Find a look that expresses your personality!";
 
@@ -188,7 +181,7 @@ if (specialMessage && specialButton && specialImage) {
     });
 }
 
-// CONTACT FORM VALIDATION //
+// CONTACT FORM VALIDATION
 
 const contactForm = document.querySelector("#contact-form");
 
@@ -208,18 +201,31 @@ if (contactForm) {
         const contactMessage = document.querySelector("#contact-message");
 
         if (
+            !contactName ||
+            !contactEmail ||
+            !contactMessage
+        ) {
+            console.error("A contact form field could not be found.");
+            return;
+        }
+
+        if (
             contactName.value.trim() === "" ||
             contactEmail.value.trim() === "" ||
             contactMessage.value.trim() === ""
         ) {
-            contactResponse.textContent =
-                "Please complete all the required fields.";
+            if (contactResponse) {
+                contactResponse.textContent =
+                    "Please complete all the required fields.";
+            }
             return;
         }
 
-        contactResponse.textContent =
-            "Thank you, " + contactName.value.trim() +
-            "! Your message has been checked successfully.";
+        if (contactResponse) {
+            contactResponse.textContent =
+                "Thank you, " + contactName.value.trim() +
+                "! Your message has been checked successfully.";
+        }
 
         contactForm.reset();
     });

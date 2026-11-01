@@ -1,4 +1,3 @@
-
 console.log("Pearl's Luxe Lane Boutique JavaScript is connected!");
 
 // PRODUCT SEARCH
@@ -137,6 +136,10 @@ if (enquiryForm) {
                 "Thank you, " + customerName.value.trim() +
                 "! Your enquiry about " + productName.value +
                 " has been checked. Please contact the boutique to confirm availability and pricing.";
+
+            setTimeout(function () {
+                enquiryResponse.textContent = "";
+            }, 5000);
         }
     });
 }
@@ -225,6 +228,10 @@ if (contactForm) {
             contactResponse.textContent =
                 "Thank you, " + contactName.value.trim() +
                 "! Your message has been checked successfully.";
+
+            setTimeout(function () {
+                contactResponse.textContent = "";
+            }, 5000);
         }
 
         contactForm.reset();

@@ -1,3 +1,5 @@
+
+ 
 console.log("Pearl's Luxe Lane Boutique JavaScript is connected!");
 
 // PRODUCT SEARCH
@@ -184,7 +186,7 @@ if (specialMessage && specialButton && specialImage) {
     });
 }
 
-// CONTACT FORM VALIDATION
+// CONTACT FORM VALIDATION AND EMAIL
 
 const contactForm = document.querySelector("#contact-form");
 
@@ -201,40 +203,46 @@ if (contactForm) {
 
         const contactName = document.querySelector("#contact-name");
         const contactEmail = document.querySelector("#contact-email");
+        const contactType = document.querySelector("#contact-type");
         const contactMessage = document.querySelector("#contact-message");
 
         if (
             !contactName ||
             !contactEmail ||
+            !contactType ||
             !contactMessage
         ) {
             console.error("A contact form field could not be found.");
             return;
         }
 
-        if (
-            contactName.value.trim() === "" ||
-            contactEmail.value.trim() === "" ||
-            contactMessage.value.trim() === ""
-        ) {
-            if (contactResponse) {
-                contactResponse.textContent =
-                    "Please complete all the required fields.";
-            }
-            return;
-        }
+        const emailSubject = encodeURIComponent(
+            contactType.value + " - Message from " + contactName.value.trim()
+        );
+
+        const emailBody = encodeURIComponent(
+            "Customer Name: " + contactName.value.trim() + "\n" +
+            "Customer Email: " + contactEmail.value.trim() + "\n" +
+            "Message Type: " + contactType.value + "\n\n" +
+            "Message:\n" + contactMessage.value.trim()
+        );
 
         if (contactResponse) {
             contactResponse.textContent =
-                "Thank you, " + contactName.value.trim() +
-                "! Your message has been checked successfully.";
-
-            setTimeout(function () {
-                contactResponse.textContent = "";
-            }, 5000);
+                "Your message is ready. Please send it using your email application.";
         }
 
+        window.location.href =
+            "mailto:info@pearlsluxelane.co.za?subject=" +
+            emailSubject + "&body=" + emailBody;
+
         contactForm.reset();
+
+        setTimeout(function () {
+            if (contactResponse) {
+                contactResponse.textContent = "";
+            }
+        }, 5000);
     });
 }
 

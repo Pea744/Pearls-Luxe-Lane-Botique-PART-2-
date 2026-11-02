@@ -243,20 +243,25 @@ if (contactForm) {
             }
             return response.json();
         })
-        .then(function () {
-            if (contactResponse) {
-                contactResponse.textContent =
-                    "Thank you! Your message has been submitted successfully.";
-            }
+     
+         .then(function (data) {
+    if (String(data.success) !== "true") {
+        throw new Error(data.message || "Message could not be sent.");
+    }
 
-            contactForm.reset();
+    if (contactResponse) {
+        contactResponse.textContent =
+            "Thank you! Your message has been submitted successfully.";
+    }
 
-            setTimeout(function () {
-                if (contactResponse) {
-                    contactResponse.textContent = "";
-                }
-            }, 5000);
-        })
+    contactForm.reset();
+
+    setTimeout(function () {
+        if (contactResponse) {
+            contactResponse.textContent = "";
+        }
+    }, 5000);
+})
         .catch(function () {
             if (contactResponse) {
                 contactResponse.textContent =

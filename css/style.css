@@ -1,6 +1,7 @@
+
 /* Pearl's Luxe Lane Boutique - External CSS */
 
-/*CSS Reset*/
+/* CSS Reset */
 * {
     margin: 0;
     padding: 0;
@@ -36,7 +37,7 @@ header {
 
 header img {
     width: 120px;
-    height: 120px;
+    height: auto;
     border-radius: 0;
 }
 
@@ -78,8 +79,6 @@ nav a:hover {
     color: white;
 }
 
-
-
 nav a:focus {
     outline: 3px solid #c2185b;
     outline-offset: 3px;
@@ -106,6 +105,14 @@ section {
 img {
     max-width: 100%;
     height: auto;
+}
+
+/* Featured image */
+#special-image {
+    width: 300px;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
 }
 
 /* Links */
@@ -176,7 +183,7 @@ footer {
         gap: 10px;
     }
 
-    .products{
+    .products {
         grid-template-columns: repeat(2, 1fr);
     }
 
@@ -188,6 +195,7 @@ footer {
         padding: 0 10px;
     }
 }
+
 /* Products */
 .products {
     display: grid;
@@ -226,6 +234,7 @@ footer {
 
     header img {
         width: 90px;
+        height: auto;
     }
 
     form {
@@ -237,6 +246,7 @@ footer {
         padding: 15px;
     }
 }
+
 /* Services layout */
 .services {
     display: grid;
@@ -264,6 +274,7 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
 .services-grid-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -274,6 +285,7 @@ footer {
     padding: 20px;
 }
 
+/* Navigation layout */
 nav ul {
     display: flex;
     flex-direction: row;
@@ -289,9 +301,7 @@ nav li {
     display: inline-block;
 }
 
-
 /* PRODUCT IMAGE LIGHTBOX */
-
 #product-lightbox {
     display: none;
     position: fixed;
@@ -339,7 +349,6 @@ nav li {
 }
 
 /* CONTACT FORM AND INPUT STYLING */
-
 form label {
     display: block;
     margin-top: 12px;
@@ -355,7 +364,6 @@ form select {
 }
 
 /* PRODUCT DETAILS */
-
 .product-details {
     margin-top: 10px;
     padding: 12px;
@@ -364,13 +372,11 @@ form select {
 }
 
 /* BUTTON SPACING */
-
 form button {
     margin-top: 10px;
 }
 
 /* LIGHTBOX MOBILE SUPPORT */
-
 @media (max-width: 480px) {
     .lightbox-content {
         padding: 12px;

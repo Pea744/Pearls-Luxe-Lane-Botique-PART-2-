@@ -186,6 +186,7 @@ if (specialMessage && specialButton && specialImage) {
     });
 }
 
+
 // CONTACT FORM VALIDATION AND EMAIL
 
 const contactForm = document.querySelector("#contact-form");
@@ -216,33 +217,51 @@ if (contactForm) {
             return;
         }
 
-        const emailSubject = encodeURIComponent(
-            contactType.value + " - Message from " + contactName.value.trim()
-        );
-
-        const emailBody = encodeURIComponent(
-            "Customer Name: " + contactName.value.trim() + "\n" +
-            "Customer Email: " + contactEmail.value.trim() + "\n" +
-            "Message Type: " + contactType.value + "\n\n" +
-            "Message:\n" + contactMessage.value.trim()
-        );
+        const formData = {
+            name: contactName.value.trim(),
+            email: contactEmail.value.trim(),
+            message: contactMessage.value.trim(),
+            message_type: contactType.value,
+            _subject: contactType.value + " - Message from " + contactName.value.trim()
+        };
 
         if (contactResponse) {
-            contactResponse.textContent =
-                "Your message is ready. Please send it using your email application.";
+            contactResponse.textContent = "Sending your message...";
         }
 
-        window.location.href =
-            "mailto:info@pearlsluxelane.co.za?subject=" +
-            emailSubject + "&body=" + emailBody;
-
-        contactForm.reset();
-
-        setTimeout(function () {
-            if (contactResponse) {
-                contactResponse.textContent = "";
+        fetch("https://formsubmit.co/ajax/nthianamanaka@gmail.com", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(function (response) {
+            if (!response.ok) {
+                throw new Error("Something went wrong.");
             }
-        }, 5000);
+            return response.json();
+        })
+        .then(function () {
+            if (contactResponse) {
+                contactResponse.textContent =
+                    "Thank you! Your message has been submitted successfully.";
+            }
+
+            contactForm.reset();
+
+            setTimeout(function () {
+                if (contactResponse) {
+                    contactResponse.textContent = "";
+                }
+            }, 5000);
+        })
+        .catch(function () {
+            if (contactResponse) {
+                contactResponse.textContent =
+                    "Sorry, your message could not be sent. Please try again.";
+            }
+        });
     });
 }
-

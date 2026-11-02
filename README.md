@@ -229,6 +229,20 @@ Testing should help identify layout, navigation, image and text issues. Any prob
 - Added a changelog to record development activities.
 - Reviewed the reference list and included links to HTML and CSS learning resources.
 
+  Part 3 — Enhancing Functionality and SEO
+
+- Added JavaScript functionality to improve interaction on the website.
+- Added a product search feature to help visitors find product categories.
+- Added a product image lightbox to allow visitors to view larger product images.
+- Added product details buttons to show and hide additional information.
+- Added an interactive welcome message on the Home page.
+- Added JavaScript validation to the Enquiry and Contact forms.
+- Added a message type selection to the Contact form.
+- Improved SEO by adding page titles, meta descriptions and descriptive image alternative text.
+- Created a sitemap.xml file to help search engines understand the website structure.
+- Created a robots.txt file to provide instructions for search engine crawlers.
+- Published the website using GitHub Pages.
+
 
 ## References
 
@@ -239,4 +253,10 @@ Mozilla Developer Network (MDN) (n.d.) *HTML: HyperText Markup Language*. Availa
 W3Schools (n.d.) *CSS Tutorial*. Available at: https://www.w3schools.com/css/ (Accessed: 18 September 2026).
 
 W3Schools (n.d.) *HTML Tutorial*. Available at: https://www.w3schools.com/html/ (Accessed: 18 September 2026).
+
+W3Schools (n.d.) HTML Tutorial. Available at: https://www.w3schools.com/html/ (Accessed: 2 November 2026).
+
+Mozilla Developer Network (MDN) (n.d.) JavaScript. Available at: https://developer.mozilla.org/en-US/docs/Web/JavaScript (Accessed: 2 November 2026).
+
+FormSubmit (n.d.) FormSubmit Documentation. Available at: https://formsubmit.co/ (Accessed: 2 November 2026).
 

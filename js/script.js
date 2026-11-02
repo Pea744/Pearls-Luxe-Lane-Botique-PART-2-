@@ -1,4 +1,5 @@
 
+ 
 console.log("Pearl's Luxe Lane Boutique JavaScript is connected!");
 
 // PRODUCT SEARCH
@@ -13,8 +14,8 @@ function searchProducts() {
     let numberOfMatches = 0;
 
     productCards.forEach(function (card) {
-        const cardText = card.textContent.toLowerCase();
-        const cardMatches = cardText.includes(searchText);
+        const productName = card.querySelector("h3").textContent.toLowerCase();
+        const cardMatches = productName.includes(searchText);
 
         card.hidden = !cardMatches;
 
@@ -96,7 +97,7 @@ if (productImages.length > 0) {
     });
 }
 
-// ENQUIRY FORM VALIDATION //
+// ENQUIRY FORM VALIDATION
 
 const enquiryForm = document.querySelector("#enquiry-form");
 
@@ -137,13 +138,15 @@ if (enquiryForm) {
                 "Thank you, " + customerName.value.trim() +
                 "! Your enquiry about " + productName.value +
                 " has been checked. Please contact the boutique to confirm availability and pricing.";
+
+            setTimeout(function () {
+                enquiryResponse.textContent = "";
+            }, 5000);
         }
     });
 }
 
-
-
-/* CLOTHING DETAILS BUTTONS Added  */
+// CLOTHING DETAILS BUTTONS
 
 const detailsButtons = document.querySelectorAll(".details-button");
 
@@ -165,19 +168,14 @@ detailsButtons.forEach(function (button) {
     });
 });
 
+// HOME PAGE FEATURED STYLE
 
-/* HOME PAGE FEATURED STYLE */
-
-// Find the home page elements.
 const specialMessage = document.querySelector("#special-message");
 const specialButton = document.querySelector("#special-button");
 const specialImage = document.querySelector("#special-image");
 
-// Check that these elements are available.
 if (specialMessage && specialButton && specialImage) {
-
     specialButton.addEventListener("click", function () {
-
         specialMessage.textContent =
             "Discover stylish outfits at Pearl's Luxe Lane Boutique. Find a look that expresses your personality!";
 
@@ -188,7 +186,8 @@ if (specialMessage && specialButton && specialImage) {
     });
 }
 
-// CONTACT FORM VALIDATION //
+
+// CONTACT FORM VALIDATION AND EMAIL
 
 const contactForm = document.querySelector("#contact-form");
 
@@ -205,22 +204,69 @@ if (contactForm) {
 
         const contactName = document.querySelector("#contact-name");
         const contactEmail = document.querySelector("#contact-email");
+        const contactType = document.querySelector("#contact-type");
         const contactMessage = document.querySelector("#contact-message");
 
         if (
-            contactName.value.trim() === "" ||
-            contactEmail.value.trim() === "" ||
-            contactMessage.value.trim() === ""
+            !contactName ||
+            !contactEmail ||
+            !contactType ||
+            !contactMessage
         ) {
-            contactResponse.textContent =
-                "Please complete all the required fields.";
+            console.error("A contact form field could not be found.");
             return;
         }
 
-        contactResponse.textContent =
-            "Thank you, " + contactName.value.trim() +
-            "! Your message has been checked successfully.";
+        const formData = {
+            name: contactName.value.trim(),
+            email: contactEmail.value.trim(),
+            message: contactMessage.value.trim(),
+            message_type: contactType.value,
+            _subject: contactType.value + " - Message from " + contactName.value.trim()
+        };
 
-        contactForm.reset();
+        if (contactResponse) {
+            contactResponse.textContent = "Sending your message...";
+        }
+
+      fetch("https://formsubmit.co/ajax/nthipanamanaka@gmail.com", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(function (response) {
+            if (!response.ok) {
+                throw new Error("Something went wrong.");
+            }
+            return response.json();
+        })
+     
+         .then(function (data) {
+    if (String(data.success) !== "true") {
+        throw new Error(data.message || "Message could not be sent.");
+    }
+
+    if (contactResponse) {
+        contactResponse.textContent =
+            "Thank you! Your message has been submitted successfully.";
+    }
+
+    contactForm.reset();
+
+    setTimeout(function () {
+        if (contactResponse) {
+            contactResponse.textContent = "";
+        }
+    }, 5000);
+})
+        .catch(function () {
+            if (contactResponse) {
+                contactResponse.textContent =
+                    "Sorry, your message could not be sent. Please try again.";
+            }
+        });
     });
 }

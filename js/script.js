@@ -229,7 +229,7 @@ if (contactForm) {
             contactResponse.textContent = "Sending your message...";
         }
 
-        fetch("https://formsubmit.co/ajax/nthianamanaka@gmail.com", {
+      fetch("https://formsubmit.co/ajax/nthipanamanaka@gmail.com", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
